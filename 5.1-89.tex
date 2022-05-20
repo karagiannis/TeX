@@ -174,7 +174,6 @@ verkningsgrad då $t_1=20^{\rm{o}}$C och $t_2=200^{\rm{o}}$C.
 %    \caption{Mät 2}
 \label{fig2}
 %\caption{Anpassning av $n$ i $p=\frac{C}{V^n}$}
-\label{fig:fig1}
 \end{figure}
 
 Den teoretiska termiska verkningsgraden definieras enligt
@@ -272,7 +271,7 @@ två värdesiffror. Således $\eta_t = 0.22$
 \noindent\textbf{5.1-94}\hfill\break
 \noindent En ideal gas genomlöper följande kretspro-\\
 cess medudurs
-\begin{table}
+\begin{table}[ht]
 \noindent\begin{tabular}{ l l  } 
 1 $\rightarrow$ 2 & Isentropisk kompression\\
 2 $\rightarrow$ 3 & Tryckökning vid konstant volym  \\ 
@@ -281,12 +280,14 @@ cess medudurs
 \end{tabular}
 \end{table}
 
+Rita processen i $p$\,-$V$- och $T$-$s$-diagrammen.
+Bestäm termiska verkningsgraden då $T_1=300$K. $T_3=700$K, $T_4=500K$ och $\kappa=1.4$.
 \bigskip
 
 \begin{figure}[h]
 \centering
 %%%%%%%%%%%%%%%p-V-diagram
-\subfigure[$p\mhyphen V$ diagram] 
+\subfigure[$p\, \mhyphen V$ diagram] 
 {
 \begin{tikzpicture}[ scale=.4,baseline={(0,0)}]
 %\draw (0,0) grid (4,4);
@@ -415,8 +416,14 @@ cess medudurs
 %    \caption{Mät 2}
 \label{fig4}
 %\caption{Anpassning av $n$ i $p=\frac{C}{V^n}$}
-\label{fig:fig1}
 \end{figure}
+
+Den teoretiska termiska verkningsgraden definieras enligt
+%\begin{wrapfigure}[5]{l}{0cm}
+\begin{flalign*}
+\eta_t &=\frac{q_{tillf}-|q_{bortf}|}{q_{tillf}} &\\
+       &=1-\frac{|q_{bortf}|}{q_{tillf}}
+\end{flalign*}
 
 
 
