@@ -34,6 +34,14 @@
 \usepackage{amsmath}
 \usepackage{listings}   
 \usepackage{tikz}
+
+\newcommand*\mycirc[1]{%
+\begin{tikzpicture}[baseline={(0,-0.1)}]
+\node[draw,circle,inner sep=1pt] {#1};
+\end{tikzpicture}}
+
+\newcommand*\textcircle[1]{\textcircled{\raisebox{0.14em}{#1}}}
+
 \usetikzlibrary{backgrounds,automata}
 \usepackage{ifthen}
 %\usepackage{pgfplots}
@@ -424,6 +432,131 @@ Den teoretiska termiska verkningsgraden definieras enligt
 \eta_t &=\frac{q_{tillf}-|q_{bortf}|}{q_{tillf}} &\\
        &=1-\frac{|q_{bortf}|}{q_{tillf}}
 \end{flalign*}
+
+$q_{tillf}$ består av den värmeenergi som tillförs under den isokora uppvärmningen
+$q_{23}$ samt värmetillförseln under isotropiska expansionen $q_{34}$ eftersom
+integralen från $(2)$ till $(4)$ i $T\mhyphen s$-diagrammet är positiv eftersom processpilen
+löper i positiv riktning. Definitionen för entropi är ju
+\begin{flalign*}
+ds &= \big( \frac{dq}{T}\big)_{rev} &\\
+\int T\cdot ds &= \int dq  &\\     
+\end{flalign*}
+För fullständighetens skull anges också för-\hfill\break
+hållandet för en icke-reversibel process.
+\begin{flalign*}
+ds &=  \frac{dq}{T} + \frac{|dw_f|}{T}&\\    
+\end{flalign*}
+där $dw_f$ är friktionsarbetet uttrycket per massenhet.
+
+Den bortförda värmeenergin $q_{bortf}$ sker under den isokora processen från $(4)$
+till $(1)$, $q_{bortf} = q_{41}$.
+
+Vi börjar med att teckna $q_{23}$
+\begin{flalign*}
+dq_{23} &= du + p\cdot dv &\\
+        &= du + p\cdot 0 &\\
+q_{23} &=\int_2^3 du &\\
+       &=\int_2^3\bar{c}_v\cdot dT &\\
+        &=\bar{c}_v\cdot(T_3-T_2) &\\
+\end{flalign*}
+Har vi värden på $\bar{c}_v$, $T_3$ och $T_2$?\hfill\break
+$T_2$ och $\bar{c}_v$ är okända
+\begin{flalign*}
+q_{23} &=\mycirc{$\bar{c}_v$}\cdot(T_3-\mycirc{$T_2$}) &\\
+\end{flalign*}
+Vi vet att det rör sig om en ideal gas så vi skulle därför kunna skriva
+$\bar{c}_v$ såsom $3/2\ R$ för en enaatomig ideal gas men frågan är om det ger någonting så här långt.
+Med de siffervärden som vi känner till så har vi
+\begin{flalign*}
+q_{23} &=\bar{c}_v\cdot(700-T_2) &\\
+\end{flalign*}
+
+
+För att teckna $q_{34}$ för den polytropiska expansionen så har vi enligt definitionen
+av termodynamikens första huvudsats $dq = du + p\cdot dv$. Vi måste
+teckna ett uttryck för volymändringsarbetet $p\cdot dv$
+För polytropiska processer gäller
+\begin{flalign*}
+p_1\cdot V_1^n &= p_2\cdot V_2^n & \text{eller} \\
+p\cdot V^n &= \text{konstant}
+\end{flalign*}
+Tar vi naturliga logaritmen på båda sidor så får vi
+\begin{flalign*}
+ln\ p + n\cdot ln\ V &=\text{konstant} & \\
+\end{flalign*}
+Detta är lösningen till differentialekvationen
+\begin{flalign*}
+\frac{dp}{p}+n\cdot\frac{dV}{V}&=0 & \\
+V\cdot dp + n\cdot p\cdot dV &= 0 &(1)\\
+\end{flalign*}
+där vi multiplicerat vänster- och höger-led med $p\cdot V$
+Rent allmänt så kan vi skriva om allmänna gaslagen på följande vis
+\begin{flalign*}
+ln\ p + n\cdot ln\ V &=ln\ m\cdot R+ ln\ T & \\
+\end{flalign*}
+Vilket är en av många lösningar till differentialekvationen
+\begin{flalign*}
+\frac{dp}{p}+n\cdot\frac{dV}{V}&=\frac{dT}{T} & \\
+V\cdot dp + n\cdot p\cdot dV &= p\cdot V \frac{dT}{T}
+\end{flalign*}
+Men denna kan skrivas med allmänna gaslagen såsom
+\begin{flalign*}
+\frac{dp}{p}+n\cdot\frac{dV}{V}&=\frac{dT}{T} & \\
+V\cdot dp + n\cdot p\cdot dV &= m\cdot R\cdot dT & (2)\\
+\end{flalign*}
+Subtraheras (2) från (1) fås
+\begin{flalign*}
+(n-1)\cdot p\cdot dV &= -m\cdot R\cdot dT & \text{vilket ger}\\
+p\cdot dV &=-\frac{m\cdot R\cdot dT}{n-1} 
+\end{flalign*}
+Vi kan nu beräkna värmemängdsändringen per massenhet $q$ för en polytrop process
+\begin{flalign*}
+dq &= du + p\cdot dv &\\
+dq &= \bar{c}_v\cdot dT -\frac{R\cdot dT}{n-1} &\\
+q_{34} &=\int_3^4  \bar{c}_v\cdot dT -\frac{R\cdot dT}{n-1} &\\
+       &= \bar{c}_v\cdot (T_4-T_3) -\frac{R\cdot (T_4-T_3)}{n-1} &\\
+       &=\bar{c}_v\cdot (T_4-T_3) -\frac{\bar{c}_v\cdot (\kappa -1) \cdot (T_4-T_3)}{n-1} &\\
+\end{flalign*}
+med insättning av det som vi har information om
+\begin{flalign*}
+q_{34} &= \bar{c}_v\cdot (500-700) +\frac{ R\cdot (700-500)}{1.2-1} &\\
+\end{flalign*}
+$q_{bortf}$ är endast den isokora nedkylningen från $(4)$ till $(1)$ 
+\begin{flalign*}
+q_{41} &= \bar{c}_v\cdot (T_1-T_4) &\\
+       &= \bar{c}_v\cdot (300-500) &\\
+\end{flalign*}
+Vi har nu sammanfattningsvis $q_{tillf}$ enligt
+\begin{flalign*}
+q_{tillf} &= q_{23} + q_{34} &\\
+          &= \bar{c}_v\cdot(700-T_2) &\\
+          &\ + \bar{c}_v\cdot (500-700) -\frac{R\cdot (500)-700}{1.2-1} &\\
+\end{flalign*}
+och $q_{bortf}$ enligt
+\begin{flalign*}
+q_{bortf} &= \bar{c}_v\cdot (300-500) &\\
+\end{flalign*}
+Vi saknar information om $T_2$. Att vi inte har något värde på $\bar{c}_v$ spelar ingen
+roll därför att vi kan skriva om denna med en faktorn $R$ som kommer att förkortas bort
+när kvoten $q_{bortf}/q_{tillf}$ tecknas.
+
+Tipset i boken är att inse att 
+\begin{flalign*}
+s_4-s_1 &= (s_4-s_3) + (s_3-s_2) &\\
+\end{flalign*}
+Vi behöver uttrycken för entropiändringarna för isokora processer dvs. för $(s_4-s_1)$ och $(s_3-s_2)$
+samt för polytropa processen $(s_4-s_3)$.
+Dessa kan vi ta direkt ur formelsamligen men vi väljer här att genomföra dessa
+beräkningar. Nu har ju vi data för en processen som går från (4) till (1) och bör kanske beräkna
+$s1-s4$ men detta är ju inget annat än -$s_4-s-1$, så vi räknar som om processen gick från $(1)$ till $(4)$
+\begin{flalign*}
+ds &= \big( \frac{dq}{T}\big)_{rev} &\\    
+\end{flalign*}
+
+
+
+
+
 
 
 
