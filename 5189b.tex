@@ -1,10 +1,6 @@
-%\documentclass[11pt,a4paper]{article}
 \documentclass[./exercises.tex]{subfiles}
-
-
 \begin{document}
-%\maketitle
-%\lipsum[1]
+
 \begin{multicols}{2}
 \noindent\textbf{5.1-89}\hfill\break
 \noindent En ideal gas genomlöper följande kretsprocess medurs:\hfil\par
@@ -128,66 +124,90 @@ verkningsgrad då $t_1=20^{\rm{o}}$C och $t_2=200^{\rm{o}}$C.
 %\caption{Anpassning av $n$ i $p=\frac{C}{V^n}$}
 \end{figure}
 
-Den teoretiska termiska verkningsgraden definieras enligt
+Den teoretiska termiska verkningsgraden $\eta_t$ definieras enligt
 %\begin{wrapfigure}[5]{l}{0cm}
 \begin{flalign*}
 \eta_t &=\frac{q_{tillf}-|q_{bortf}|}{q_{tillf}} &\\
-       &=1-\frac{|q_{bortf}|}{q_{tillf}}
+       &=1-\frac{|q_{bortf}|}{q_{tillf}} & (1) \\
 \end{flalign*}
 %\end{wrapfigure}
 Avseende $q_{tillf}$ som ju är $q_{12}$ så rör vi oss till höger i $T\mhyphen s$ diagrammet.
-Integralen blir då positiv.\\
+Arean under kurvan blir således positiv därför att $ds>0$ om integrationsriktningen är positiv.\\
 \begin{flalign*}
 q_{12}&=\int_1^2 T\cdot ds &
 \end{flalign*}
-Värmemängdsändringen är således ändringen av den inre energin.
+Värmemängdsändringen är således ändringen av den inre energin eftersom volymändringen är
+noll i en isokorprocess $dv=0$
 \begin{flalign*}
-q_{12}&=\bar{c}_v\cdot(T_2)-T_1) &
+dq &= du + p\cdot dv &\\
+dq &= \bar{c}_v\cdot dT + p\cdot 0 &\\
 \end{flalign*}
-Problemställningen talar om en ideal gas men ger inget värde.
+Integration från 1 till 2 ger 
+\begin{flalign*}
+q_{12}&=\bar{c}_v\cdot(T_2-T_1) & (2)\\
+\end{flalign*}
+Problemställningen talar om en ideal gas men ger inget värde på $R$.
+
 För en enatomig ideal gas gäller 
 \begin{flalign*}
-c_v&=\frac{3}{2}R &\\
-c_p&=\frac{5}{2}R
+c_v&=\frac{3}{2}R &(3)\\
+c_p&=\frac{5}{2}R &(4)\\
 \end{flalign*}
+
 För en tvåatomig ideal gas gäller 
 \begin{flalign*}
-c_v&=\frac{5}{2}R &\\
-c_p&=\frac{7}{2}R
+c_v&=\frac{5}{2}R & (5)\\
+c_p&=\frac{7}{2}R & (6) \\
 \end{flalign*}
-Vi antar att det rör sig om en enatomig ideal gas. Således skriver vi
+Vi antar helt godtyckligt att det rör sig om en enatomig ideal gas.
+Förmodligen kommer gasspecifika faktorn att kunna förkortas bort då
+kvoten $|q_{bortf}|/q_{tillf}$ beräknas.
+ Således skriver vi
 \begin{flalign*}
 q_{tillf}&=\frac{3}{2}R\cdot(T_2-T_1) &\\
-         &=\frac{3}{2}R\cdot(200-20)&
+         &=\frac{3}{2}R\cdot(200-20)& (7)\\
 \end{flalign*}
 Värme bortförs under isotermen eftersom integrationsriktningen är omvänd, 
 $q_{13}<0$, vilket också stämmer rent intuitivt. Om vi komprimerar gasen så stiger temperaturen men för att hålla
 temperaturen konstant så måste vi hela tiden bortföra värmeenergi under komprimeringsprocessen.
 Eftersom temperaturen på gasen inte ändras så ändras inte
 inre energin $u_3-u_1=0$.
-Ändringen av värmeenergin $q_{31}$ blir alltså lika med volymändringsarbetet $w_{31}$
-$q_{31}=w_{31}$. Volymändringsarbetet är per definition
+Ändringen av värmeenergin $q_{31}$ för isotermen från tillstånd 3 till 1 blir alltså lika med volymändringsarbetet $w_{31}$
+$q_{31}=w_{31}$. 
+\begin{flalign*}
+q_{31}&= u_3-u_1 + w_{31} &\\
+q_{31}&= 0 + w_{31} &\\
+\end{flalign*}
+Volymändringsarbetet för isotermen från 3 till 1 är per definition
 \begin{flalign*}
 w_{31}&=\int_3^1 p\cdot dv &\\
       &=\int_3^1\frac{R\cdot T}{v}dv &\\
-      &=R\cdot T\cdot ln(\frac{v_1}{v_3}) &\\
-q_{bort}&=R\cdot T\cdot ln(\frac{v_1}{v_3}) &
+      &=R\cdot T\cdot ln(\frac{v_1}{v_3}) &(8)\\
+q_{bort}&=R\cdot T\cdot ln(\frac{v_1}{v_3}) &(9)\\
 \end{flalign*}
-Vi har dock ingen information om värden $p$ och $v$ sådant att vi kan räkna ut detta förutom att
-vi vet att för en isoterm så gäller $p_1\cdot V_1 = p_3\cdot V_3$
+Vi har dock ingen information om värden $p$ och $v$ sådant att vi kan räkna ut (9).
 Vi ser dock att arean under kurvan i $T\mhyphen s$ diagrammet är en rektangel som vi
-enkelt kan beräkna arean av såsom $(s_1 - s_3)\cdot T_1$.\\ Entropiändringen är
+enkelt kan beräkna arean av såsom $(s_1 - s_3)\cdot T_1$.\\ 
+Definitionen för entropi är
+\begin{flalign*}
+ds &= \bigg( \frac{dq}{T}\bigg)_{rev} &\\
+   &=  \frac{du}{T} + \frac{p\cdot dv}{T} & (10)\\  
+\end{flalign*}
+för reversibla processer. Entropiändringen från 3 till 1
 \begin{flalign*}
 \int_3^1 ds &=\int_3^1 \frac{dQ}{T}&\\
-s_1 -s_3 &= \int_3^1 \frac{1}{T} du + p\cdot dv &\\
-         &= \int_3^1 \frac{1}{T} 0 + p\cdot dv &\\
+s_1 -s_3 &= \int_3^1 \frac{1}{T}(du + p\cdot dv) & (11)\\
+\end{flalign*}
+För isotermen blir detta
+\begin{flalign*}
+ s_1 -s_3&= \int_3^1 \frac{1}{T}( 0 + p\cdot dv) &\\
          &=\int_3^1\frac{1}{T}\frac{R\cdot T}{v}dv &\\
          &=R\cdot ln(\frac{v_1}{v_3}) &\\
-         &=R\cdot ln(\frac{v_1}{v_3}) &
+         &=R\cdot ln(\frac{v_1}{v_3}) & (12)\\
 \end{flalign*}
-Denna informationen ger ingenting men vi vet att
-$s_2=s_3$ så vi kan faktiskt räkna ut den sökta differensen
-från isokor-processen
+Vi saknar information om $v_1$ och $v_3$ för att kunna använda denna.
+Men $s_2=s_3$ så vi kan faktiskt räkna ut den sökta differensen
+från isokor-processen därför att $s_2 -s_1$=$s_1 -s_3$
 \begin{flalign*}
 \int_1^2 ds &=\int_1^2 \frac{dQ}{T}&\\
 s_2 -s_1 &= \int_1^2 \frac{1}{T} du + p\cdot dv &\\
@@ -195,14 +215,16 @@ s_2 -s_1 &= \int_1^2 \frac{1}{T} du + p\cdot dv &\\
          &=\int_3^1\frac{1}{T}c_v\cdot dT &\\
          &=c_v\cdot ln(\frac{T_2}{T_1}) &\\
          &=\frac{3}{2}R\cdot ln(\frac{(273+200)}{273+20}) &\\
-         &=\frac{3}{2}R\cdot 0.478922779
+         &=\frac{3}{2}R\cdot 0.478922779&(13)\\
 \end{flalign*}
+Nu kan vi beräkna $(s_1 - s_3)\cdot T_1$ eftersom
 $s_1 - s_3 =-(s_2 -s_1)=-\frac{3}{2}R\cdot 0.478922779$\\
 Detta ger att
 \begin{flalign*}
-|q_{bort}|&=T_1\cdot \frac{3}{2}R\cdot 0.478922779\\&
+|q_{bort}|&=|(s_1 - s_3)\cdot T_1 &\\|
+|q_{bort}|&=T_1\cdot \frac{3}{2}R\cdot 0.478922779 &(14)\\
 \end{flalign*}
-Vilket ger oss
+Vilket ger oss med insättning av (14) och (7)
 \begin{flalign*}
 \eta_t &=1-\frac{|q_{bortf}|}{q_{tillf}} &\\
        &=1-\frac{T_1\cdot \frac{3}{2}R\cdot 0.478922779}{\frac{3}{2}R\cdot(200-20)} &\\
@@ -219,5 +241,5 @@ två värdesiffror. Således $\eta_t = 0.22$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{multicols}
+%\end{multicols}
 \end{document}
