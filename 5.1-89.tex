@@ -438,7 +438,7 @@ $q_{23}$ samt värmetillförseln under isotropiska expansionen $q_{34}$ eftersom
 integralen från $(2)$ till $(4)$ i $T\mhyphen s$-diagrammet är positiv eftersom processpilen
 löper i positiv riktning. Definitionen för entropi är ju
 \begin{flalign*}
-ds &= \big( \frac{dq}{T}\big)_{rev} &\\
+ds &= \bigg( \frac{dq}{T}\bigg)_{rev} &\\
 \int T\cdot ds &= \int dq  &\\     
 \end{flalign*}
 För fullständighetens skull anges också för-\hfill\break
@@ -516,10 +516,13 @@ dq &= \bar{c}_v\cdot dT -\frac{R\cdot dT}{n-1} &\\
 q_{34} &=\int_3^4  \bar{c}_v\cdot dT -\frac{R\cdot dT}{n-1} &\\
        &= \bar{c}_v\cdot (T_4-T_3) -\frac{R\cdot (T_4-T_3)}{n-1} &\\
        &=\bar{c}_v\cdot (T_4-T_3) -\frac{\bar{c}_v\cdot (\kappa -1) \cdot (T_4-T_3)}{n-1} &\\
+       &=\bar{c}_v\cdot (T_4-T_3)\cdot\bigg[\frac{(n-1)-(\kappa -1)}{n-1}\bigg]&\\
+       &=\bar{c}_v\cdot (T_4-T_3)\cdot\frac{(n-\kappa )}{n-1}&\\
 \end{flalign*}
 med insättning av det som vi har information om
 \begin{flalign*}
-q_{34} &= \bar{c}_v\cdot (500-700) +\frac{ R\cdot (700-500)}{1.2-1} &\\
+q_{34} &= \bar{c}_v\cdot (500-700)\cdot\frac{1.2-1.4 }{1.2-1}&\\
+       &=\bar{c}_v\cdot 200
 \end{flalign*}
 $q_{bortf}$ är endast den isokora nedkylningen från $(4)$ till $(1)$ 
 \begin{flalign*}
@@ -530,11 +533,12 @@ Vi har nu sammanfattningsvis $q_{tillf}$ enligt
 \begin{flalign*}
 q_{tillf} &= q_{23} + q_{34} &\\
           &= \bar{c}_v\cdot(700-T_2) &\\
-          &\ + \bar{c}_v\cdot (500-700) -\frac{R\cdot (500)-700}{1.2-1} &\\
+          &\ + \bar{c}_v\cdot 200
 \end{flalign*}
 och $q_{bortf}$ enligt
 \begin{flalign*}
 q_{bortf} &= \bar{c}_v\cdot (300-500) &\\
+          &= -\bar{c}_v\cdot 200 &\\
 \end{flalign*}
 Vi saknar information om $T_2$. Att vi inte har något värde på $\bar{c}_v$ spelar ingen
 roll därför att vi kan skriva om denna med en faktorn $R$ som kommer att förkortas bort
@@ -550,8 +554,70 @@ Dessa kan vi ta direkt ur formelsamligen men vi väljer här att genomföra dess
 beräkningar. Nu har ju vi data för en processen som går från (4) till (1) och bör kanske beräkna
 $s1-s4$ men detta är ju inget annat än -$s_4-s-1$, så vi räknar som om processen gick från $(1)$ till $(4)$
 \begin{flalign*}
-ds &= \big( \frac{dq}{T}\big)_{rev} &\\    
+ds &= \bigg( \frac{dq}{T}\bigg)_{rev} &\\ 
+   &=du + p\cdot dv &\\
+\int_1^4 ds &= \int_1^4 \frac{\bar{c}_v\cdot dT}{T} &\\
+s_4 - s_1 &=  \bar{c}_v\cdot ln\bigg(\frac{T_4}{T_1}\bigg) &\\
 \end{flalign*}
+Likaså har vi därför för isokoren $(2)$ till $(3)$
+\begin{flalign*}
+s_3 - s_2 &=  \bar{c}_v\cdot ln\bigg(\frac{T_3}{T_2}\bigg) &\\
+\end{flalign*}
+För den polytropa processen $(3)$ till $(4)$ så har vi
+\begin{flalign*}
+ds &= \bigg( \frac{dq}{T}\bigg)_{rev} &\\ 
+   &=\frac{du}{T} + \frac{p\cdot dv}{T} &\\
+   &= \bar{c}_v\cdot \frac{dT}{T} -\frac{R}{n-1}\cdot \frac{dT}{T} &\\
+\int_3^4 ds &= \int_3^4 \bar{c}_v\cdot \frac{dT}{T} -\frac{R}{n-1}\cdot \frac{dT}{T} &\\
+s_4 - s_3 &=  \bar{c}_v\cdot ln\bigg(\frac{T_4}{T_3}\bigg)-\frac{R}{n-1}\cdot ln\bigg(\frac{T_4}{T_3}\bigg) &\\
+          &=\bar{c}_v\frac{n-\kappa}{n-1}\cdot ln\bigg(\frac{T_4}{T_3}\bigg) &\\
+\end{flalign*}
+Vi tecknar nu uttrycken för $(s_4 - s_1)$ och ser om vi kan lösa ut $T_2$
+\begin{flalign*}
+s_4-s_1 &= (s_4-s_3) + (s_3-s_2) &\\
+\bar{c}_v\cdot ln\bigg(\frac{T_4}{T_1}\bigg) &= \bar{c}_v\frac{n-\kappa}{n-1}\cdot ln\bigg(\frac{T_4}{T_3}\bigg) &\\
+                                             &\ +\bar{c}_v\cdot ln\bigg(\frac{T_3}{T_2}\bigg) &\\
+\end{flalign*}
+Vi kan börja med att förkorta bort $\bar{c}_v$
+\begin{flalign*}
+ln\bigg(\frac{T_4}{T_1}\bigg) &= \frac{n-\kappa}{n-1}\cdot ln\bigg(\frac{T_4}{T_3}\bigg) &\\
+                              &\ +ln\bigg(\frac{T_3}{T_2}\bigg) &\\
+\end{flalign*}
+Vi kan förbereda vänster- och höger-led för att ta ta e-upphöjt av vänster och höger-led
+\begin{flalign*}
+ln\bigg(\frac{T_4}{T_1}\bigg) &= ln\Bigg[\bigg(\frac{T_4}{T_3}\bigg)^{\frac{n-\kappa}{n-1}}\Bigg] &\\
+                              &\ +ln\bigg(\frac{T_3}{T_2}\bigg) &\\
+\end{flalign*}
+Nu tar vi e-upphöjt.
+\begin{flalign*}
+\frac{T_4}{T_1} &= \bigg(\frac{T_4}{T_3}\bigg)^{\frac{n-\kappa}{n-1}}\cdot \frac{T_3}{T_2} &\\
+\end{flalign*}
+Högerledet måste bli en produkt därför att $e^{\alpha + \beta} = e^\alpha\cdot e^\beta$
+Låt $\alpha$ och $\beta$ vara ln-funktioner och resultatet blir produkten av argumenten för
+ln-funktionerna.
+\begin{flalign*}
+T_2 &= \bigg(\frac{T_4}{T_3}\bigg)^{\frac{n-\kappa}{n-1}}\cdot \frac{T_3\cdot T_1}{T_4} &\\
+    &= \bigg(\frac{500}{700}\bigg)^{\frac{1.2-1.4}{1.2-1}}\cdot \frac{700\cdot 300}{500}&\\
+    &=588^{\text{o}}\text{K}
+\end{flalign*}
+
+Nu är det bara sätt in i formeln för verkningsgraden. 
+Substituerar$ R= \bar{c}_v\cdot(\kappa -1)$ 
+\begin{flalign*}
+\eta_t &=1-\frac{|q_{bortf}|}{q_{tillf}} &\\
+       &=1-\frac{\bar{c}_v\cdot 200}{\bar{c}_v\cdot(700-588)+ \bar{c}_v\cdot 200}&\\
+       &=1-\frac{200}{312}&\\
+       &=1-0.641025641&\\
+       &=0.358974359
+\end{flalign*}
+Svar med korrekt antal värdesiffror måste vara med två värdesiffror eftersom det minsta antalet värdesiffror
+av en parameter i problemformuleringen var för $\kappa=1.4$
+Således skall svaret vara $\eta_t=0.36$ eller verkningsgraden 36\%
+
+
+
+
+
 
 
 
